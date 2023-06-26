@@ -31,7 +31,7 @@ export default function Main() {
       localStorage.setItem('accessToken', JSON.stringify(accessToken));
       localStorage.setItem('UID', JSON.stringify(UID));
       localStorage.setItem('isLogIn', JSON.stringify(true));
-      axios(`/members/${UID}`, {
+      axios(`http://ec2-13-125-172-34.ap-northeast-2.compute.amazonaws.com:8080/members/${UID}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         }
