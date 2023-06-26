@@ -40,7 +40,7 @@ export default function Main() {
       return navigate('/');
     }
 
-    axios(`/questions/get/recent?page=0&size=6`)
+    axios(`http://ec2-13-125-172-34.ap-northeast-2.compute.amazonaws.com:8080/questions/get/recent?page=0&size=6`)
     .then(res => dispatch(setDatas(res.data)));
     searchRef.current.focus();
     dispatch(setSearch(''));
@@ -48,7 +48,7 @@ export default function Main() {
 
   useEffect(()=> {
     if(inView){
-      axios(`/questions/get/recent?page=0&size=${page}`)
+      axios(`http://ec2-13-125-172-34.ap-northeast-2.compute.amazonaws.com:8080/questions/get/recent?page=0&size=${page}`)
       .then(res => {
         dispatch(setDatas(res.data))
         if(status === 'latest') dispatch(setLatest());
