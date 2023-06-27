@@ -37,9 +37,8 @@ export const UserButton = tw.button`
   border-[#DCDCDC]
   hover:bg-[#DCDCDC]
   text-sm
-  text-white
   rounded-full
-  px-6
+  px-8
   py-2
   transition duration-300 ease-in-out
   max-md:text-xs
