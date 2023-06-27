@@ -21,12 +21,12 @@ export default function Header() {
     const parsedCheck = JSON.parse(localStorage.getItem('isLogIn'));
     setCheck(parsedCheck);
 
-    if (parsedCheck) {
+    if (check) {
       setIsLogin(true);
       const parsedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
       setUserInfo(parsedUserInfo);
     }
-  }, [check]);
+  }, [check, isLogIn]);
 
   return (
     <HeaderContainer>
