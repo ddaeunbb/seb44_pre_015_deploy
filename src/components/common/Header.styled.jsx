@@ -32,6 +32,14 @@ export const Nav = tw.nav`
 
 
 export const UserButton = tw.button`
-  p-3
-  w-[10rem]
+  bg-white
+  border-[1px]
+  border-[#DCDCDC]
+  hover:bg-[#DCDCDC] 
+  rounded-full
+  text-sm
+  px-8
+  py-2
+  transition duration-300 ease-in-out
+  max-md:text-xs
 `

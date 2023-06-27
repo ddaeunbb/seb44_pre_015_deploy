@@ -5,16 +5,14 @@ import { setSearch } from '../../modules/searchSlice';
 import { Link } from "react-router-dom";
 import LoginBtn from "../button/login/LoginBtn";
 import Logo from "../../assets/logo-stackoverflow.svg";
-import { HeaderContainer, LogoContainer, LogoImg, Nav } from "../common/Header.styled";
+import { HeaderContainer, LogoContainer, LogoImg, Nav, UserButton } from "../common/Header.styled";
 import LogoutBtn from "../button/login/LogoutBtn";
-import { UserImgSm, Img } from "../user/UserCommon.styled";
 import QuestionBtn from '../button/question/QuestionBtn';
 
 export default function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLogIn, setIsLogin] = useState(false);
-  const [userInfo, setUserInfo]= useState('');
   const [check, setCheck] = useState();
 
   useEffect(() => {
@@ -26,7 +24,6 @@ export default function Header() {
   useEffect(() => {
     if (check) {
       const parsedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
-      setUserInfo(parsedUserInfo);
       setIsLogin(true);
     }
   }, [check]);
@@ -43,12 +40,7 @@ export default function Header() {
           <>
             <QuestionBtn />
             <LogoutBtn setIsLogin={setIsLogin} />
-            <UserImgSm className="cursor-pointer" onClick={()=> navigate('/mypage')}>
-              <Img
-                src={userInfo === null ? localStorage.getItem('userInfo').picture : userInfo.picture }
-                alt="userImg"
-              />
-            </UserImgSm>
+            <UserButton className="cursor-pointer" onClick={()=> navigate('/mypage')}>마이페이지</UserButton>
           </>
         ) : (
           <LoginBtn />
