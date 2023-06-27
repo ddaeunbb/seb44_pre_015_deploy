@@ -29,3 +29,9 @@ export const Nav = tw.nav`
   flex
   gap-2
 `;
+
+
+export const UserButton = tw.button`
+  p-3
+  w-[10rem]
+`
