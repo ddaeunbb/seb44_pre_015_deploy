@@ -20,13 +20,15 @@ export default function Header() {
   useEffect(() => {
     const parsedCheck = JSON.parse(localStorage.getItem('isLogIn'));
     setCheck(parsedCheck);
+  }, []);
 
+  useEffect(() => {
     if (check) {
       setIsLogin(true);
       const parsedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
       setUserInfo(parsedUserInfo);
     }
-  }, [check, isLogIn]);
+  }, [check]);
 
   return (
     <HeaderContainer>
