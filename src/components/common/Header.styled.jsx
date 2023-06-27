@@ -30,15 +30,16 @@ export const Nav = tw.nav`
   gap-2
 `;
 
-
 export const UserButton = tw.button`
-  bg-white
-  border-[1px]
+  bg-[#FFFFFF]
+  border-2
+  text-black
   border-[#DCDCDC]
-  hover:bg-[#DCDCDC] 
-  rounded-full
+  hover:bg-[#DCDCDC]
   text-sm
-  px-8
+  text-white
+  rounded-full
+  px-6
   py-2
   transition duration-300 ease-in-out
   max-md:text-xs
