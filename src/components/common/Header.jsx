@@ -20,7 +20,7 @@ export default function Header() {
 
   useEffect(() => {
     const parsedCheck = JSON.parse(localStorage.getItem('isLogIn'));
-    if (parsedCheck !== undefined) setCheck(parsedCheck)
+    if (parsedCheck !== null || parsedCheck !== undefined) setCheck(parsedCheck)
     else setCheck(false);
   }, [check]);
 
@@ -29,6 +29,13 @@ export default function Header() {
       const parsedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
       setUserInfo(parsedUserInfo);
       setIsLogin(true);
+    } else {
+      const parsedCheck = JSON.parse(localStorage.getItem('isLogIn'));
+      if (parsedCheck == true) {
+        const parsedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
+        setUserInfo(parsedUserInfo);
+        setIsLogin(true);
+      }
     }
   }, [check]);
 
