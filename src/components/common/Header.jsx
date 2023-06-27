@@ -15,16 +15,15 @@ export default function Header() {
   const dispatch = useDispatch();
   const [isLogIn, setIsLogin] = useState(false);
   const [userInfo, setUserInfo]= useState('');
-
+  const check = JSON.parse(localStorage.getItem('isLogIn'));
 
   useEffect(()=> {
-    const check = JSON.parse(localStorage.getItem('isLogIn'));
     if ( check ){
       setIsLogin(true);
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       setUserInfo(userInfo);
     }
-  }, [isLogIn])
+  }, [isLogIn, check])
 
   return (
     <HeaderContainer>
