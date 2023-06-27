@@ -9,6 +9,7 @@ import { HeaderContainer, LogoContainer, LogoImg, Nav } from "../common/Header.s
 import LogoutBtn from "../button/login/LogoutBtn";
 import { UserImgSm, Img } from "../user/UserCommon.styled";
 import QuestionBtn from '../button/question/QuestionBtn';
+import User from '../../assets/user.png'
 
 export default function Header() {
   const navigate = useNavigate();
@@ -25,9 +26,9 @@ export default function Header() {
 
   useEffect(() => {
     if (check) {
-      setIsLogin(true);
       const parsedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
       setUserInfo(parsedUserInfo);
+      setIsLogin(true);
     }
   }, [check]);
 
@@ -45,7 +46,7 @@ export default function Header() {
             <LogoutBtn setIsLogin={setIsLogin} />
             <UserImgSm className="cursor-pointer" onClick={()=> navigate('/mypage')}>
               <Img
-                src={userInfo === null ? `https://www.google.com/url?sa=i&url=https%3A%2F%2Fnamu.wiki%2Fw%2F%25EA%25B3%25A0%25EC%2596%2591%25EC%259D%25B4&psig=AOvVaw2QeI-SJMfLdtM2dLn8fw90&ust=1687583039014000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMCjy-_O2P8CFQAAAAAdAAAAABAD` : userInfo.picture }
+                src={userInfo === null ? User : userInfo.picture }
                 alt="userImg"
               />
             </UserImgSm>
