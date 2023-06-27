@@ -22,8 +22,10 @@ export default function Header() {
       setIsLogin(true);
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       setUserInfo(userInfo);
+    } else {
+      return window.location.reload();
     }
-  }, [isLogIn, check])
+  }, [])
 
   return (
     <HeaderContainer>
