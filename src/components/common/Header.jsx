@@ -21,7 +21,7 @@ export default function Header() {
     const parsedCheck = JSON.parse(localStorage.getItem('isLogIn'));
     if (parsedCheck !== undefined) setCheck(parsedCheck)
     else setCheck(false);
-  }, [parsedCheck]);
+  }, [check]);
 
   useEffect(() => {
     if (check) {
